@@ -8,23 +8,23 @@
 #ifndef APPLICATION_H_
 #define APPLICATION_H_
 
-#include <SFML/System/Time.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
-
+#include <SFML/System/Time.hpp>
+#include <ScreenManager.hpp>
 
 class Application {
 public:
-    Application();
-    void run();
+  Application();
+  void run();
 
 private:
-    void processInput();
-	void update(sf::Time dt);
-    void render();
+  void processInput();
+  void update(sf::Time dt);
+  void render();
 
-	static const sf::Time TimePerFrame;
-	sf::RenderWindow mWindow;
+  static const sf::Time TimePerFrame;
+  sf::RenderWindow mWindow;
+  ScreenManager mscreenmanager;
 };
-
 
 #endif /* APPLICATION_H_ */

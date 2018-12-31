@@ -14,6 +14,4 @@ int main() {
 
   Application app;
   app.run();
-
-
 }
