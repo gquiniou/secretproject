@@ -18,19 +18,35 @@
 
 class ScreenManager {
 public:
-  ScreenManager(sf::RenderWindow &window) : mWindow(&window){};
-  void handleEvent(sf::Event event) { event.type; };
-  void update(sf::Time dt) {   std::cout << dt.asMilliseconds() << "x" << std::endl;
- };
-  void render(){};
+    explicit ScreenManager(sf::RenderWindow &window) {
+        mWindow = &window;
+    };
 
-  void changeScreen(Screen s);
-  void registerScreen(Screen s);
+    void handleEvent(sf::Event &event) {
+        activeScreen->handleEvent(event);
+    };
+
+    void update(sf::Time dt) {
+        activeScreen->update(dt);
+    };
+
+    void render() {
+        // std::cout << "in render" << std::endl;
+        activeScreen->render(mWindow);
+    };
+
+    void changeScreen(const std::string &name) {
+        activeScreen = screens[name];
+    }
+
+    void registerScreen(const std::string &name, Screen &s) {
+        screens[name] = &s;
+    };
 
 private:
-  sf::RenderWindow *mWindow;
-  std::map<std::string, Screen *> screens;
-  Screen *activeScreen;
+    sf::RenderWindow *mWindow;
+    std::map<std::string, Screen *> screens;
+    Screen *activeScreen = nullptr;
 };
 
 #endif /* SCREENMANAGER_H_ */

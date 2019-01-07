@@ -14,17 +14,20 @@
 
 class Application {
 public:
-  Application();
-  void run();
+    Application();
+
+    void run();
 
 private:
-  void processInput();
-  void update(sf::Time dt);
-  void render();
+    void processInput();
 
-  static const sf::Time TimePerFrame;
-  sf::RenderWindow mWindow;
-  ScreenManager mscreenmanager;
+    void update(sf::Time dt);
+
+    void render();
+
+    static const sf::Time TimePerFrame;
+    sf::RenderWindow mWindow;
+    ScreenManager mscreenmanager;
 };
 
 #endif /* APPLICATION_H_ */

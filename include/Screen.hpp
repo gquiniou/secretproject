@@ -9,14 +9,18 @@
 #define SCREEN_H_
 
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Window/Event.hpp>
 #include <SFML/System/Time.hpp>
 
 class Screen {
 public:
-  Screen(){};
-  virtual void handleEvent(sf::Event event);
-  virtual void update(sf::Time dt);
-  virtual void render(sf::RenderWindow &);
+    Screen() = default;
+
+    virtual void handleEvent(sf::Event &event) = 0;
+
+    virtual void update(sf::Time dt) = 0;
+
+    virtual void render(sf::RenderWindow *) = 0;
 
 private:
 };
