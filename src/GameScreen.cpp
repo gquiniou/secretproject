@@ -6,7 +6,8 @@
 
 void GameScreen::handleEvent(sf::Event &event) {
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)) {
-        std::cout << "esc pressed !!" << std::endl;
+        std::cout << "esc pressed  !!" << std::endl;
+        mScreenManager->changeScreen("pause");
     }
 }
 

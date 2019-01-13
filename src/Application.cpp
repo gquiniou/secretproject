@@ -16,6 +16,7 @@ Application::Application()
 
     mScreenManager.registerScreen("game", *new GameScreen(&mScreenManager));
     mScreenManager.changeScreen("game");
+    mScreenManager.registerScreen("pause", *new PauseScreen(&mScreenManager));
 }
 
 void Application::run() {
