@@ -8,13 +8,16 @@
 #ifndef SCREEN_H_
 #define SCREEN_H_
 
+#include <ScreenManager.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/System/Time.hpp>
 
+class ScreenManager;
+
 class Screen {
 public:
-    Screen() = default;
+    explicit Screen(ScreenManager *sm) : mScreenManager(sm) {};
 
     virtual void handleEvent(sf::Event &event) = 0;
 
@@ -23,6 +26,7 @@ public:
     virtual void render(sf::RenderWindow *) = 0;
 
 private:
+    ScreenManager *mScreenManager;
 };
 
 #endif /* SCREEN_H_ */

@@ -25,9 +25,8 @@ private:
 
     void render();
 
-    static const sf::Time TimePerFrame;
     sf::RenderWindow mWindow;
-    ScreenManager mscreenmanager;
+    ScreenManager mScreenManager;
 };
 
 #endif /* APPLICATION_H_ */

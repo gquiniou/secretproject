@@ -8,40 +8,28 @@
 #ifndef SCREENMANAGER_H_
 #define SCREENMANAGER_H_
 
+#include <Screen.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
-#include <Screen.hpp>
 #include <map>
 #include <iostream>
 
-
 class ScreenManager {
+
 public:
-    explicit ScreenManager(sf::RenderWindow &window) {
-        mWindow = &window;
-    };
+    explicit ScreenManager(sf::RenderWindow *window) : mWindow(window) {};
 
-    void handleEvent(sf::Event &event) {
-        activeScreen->handleEvent(event);
-    };
+    void handleEvent(sf::Event &event);
 
-    void update(sf::Time dt) {
-        activeScreen->update(dt);
-    };
+    void update(sf::Time dt);
 
-    void render() {
-        // std::cout << "in render" << std::endl;
-        activeScreen->render(mWindow);
-    };
+    void render();
 
-    void changeScreen(const std::string &name) {
-        activeScreen = screens[name];
-    }
+    void changeScreen(const std::string &name);
 
-    void registerScreen(const std::string &name, Screen &s) {
-        screens[name] = &s;
-    };
+    void registerScreen(const std::string &name, Screen &s);
+
 
 private:
     sf::RenderWindow *mWindow;

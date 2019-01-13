@@ -9,14 +9,13 @@
 
 Application::Application()
         : mWindow(sf::VideoMode(640, 480), "Game", sf::Style::Close),
-          mscreenmanager(mWindow) {
+          mScreenManager(&mWindow) {
 
     mWindow.setMouseCursorVisible(false);
     mWindow.setVerticalSyncEnabled(true);
 
-//  GameScreen gs;
-    mscreenmanager.registerScreen("game", *new GameScreen());
-    mscreenmanager.changeScreen("game");
+    mScreenManager.registerScreen("game", *new GameScreen(&mScreenManager));
+    mScreenManager.changeScreen("game");
 }
 
 void Application::run() {
@@ -33,7 +32,6 @@ void Application::run() {
 
             processInput();
             update(TimePerFrame);
-
             // mWindow.close();
         }
 
@@ -44,7 +42,7 @@ void Application::run() {
 void Application::processInput() {
     sf::Event event;
     while (mWindow.pollEvent(event)) {
-        mscreenmanager.handleEvent(event);
+        mScreenManager.handleEvent(event);
 
         if (event.type == sf::Event::Closed)
             mWindow.close();
@@ -52,13 +50,11 @@ void Application::processInput() {
 }
 
 void Application::update(sf::Time dt) {
-    mscreenmanager.update(dt);
-    //std::cout << dt.asMilliseconds() << std::endl;
+    mScreenManager.update(dt);
 }
 
 void Application::render() {
-
     mWindow.clear();
-    mscreenmanager.render();
+    mScreenManager.render();
     mWindow.display();
 }

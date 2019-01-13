@@ -3,9 +3,6 @@
 //
 
 #include "GameScreen.hpp"
-#include <iostream>
-
-GameScreen::GameScreen() = default;
 
 void GameScreen::handleEvent(sf::Event &event) {
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)) {
@@ -15,8 +12,10 @@ void GameScreen::handleEvent(sf::Event &event) {
 
 void GameScreen::update(sf::Time dt) {
     //  Screen::update(dt);
+    myRectangle.setPosition(i++ % 500, i++ % 500);
 }
 
 void GameScreen::render(sf::RenderWindow *window) {
     //  Screen::render(window);
+    window->draw(myRectangle);
 }
