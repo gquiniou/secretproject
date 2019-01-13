@@ -6,6 +6,7 @@
  */
 #include <Application.hpp>
 #include <GameScreen.hpp>
+#include <PauseScreen.hpp>
 
 Application::Application()
         : mWindow(sf::VideoMode(640, 480), "Game", sf::Style::Close),
@@ -16,6 +17,7 @@ Application::Application()
 
     mScreenManager.registerScreen("game", *new GameScreen(&mScreenManager));
     mScreenManager.changeScreen("game");
+    mScreenManager.registerScreen("pause", *new PauseScreen(&mScreenManager));
 }
 
 void Application::run() {

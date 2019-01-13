@@ -6,7 +6,6 @@
 #define SECRETPROJECT_GAMESCREEN_HPP
 
 #include <ScreenManager.hpp>
-
 #include "Screen.hpp"
 #include <SFML/Graphics/RectangleShape.hpp>
 

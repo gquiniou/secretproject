@@ -1,3 +1,5 @@
 *~
 *.o
 secret
+.vscode
+.idea
