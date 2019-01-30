@@ -13,7 +13,7 @@ void ScreenManager::update(sf::Time dt) {
 };
 
 void ScreenManager::render() {
-    activeScreen->render(*mWindow);
+    activeScreen->render(mWindow);
 };
 
 void ScreenManager::changeScreen(const std::string &name) {

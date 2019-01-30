@@ -15,7 +15,7 @@
 #include <map>
 #include <iostream>
 
-class ScreenManager {
+class ScreenManager : public sf::NonCopyable {
 
 public:
     explicit ScreenManager(sf::RenderWindow *window) : mWindow(window) {};
@@ -34,6 +34,7 @@ public:
 
 private:
     sf::RenderWindow *mWindow;
+    //TODO: use smart pointers for Screens
     std::map<std::string, Screen *> screens;
     Screen *activeScreen = nullptr;
 };

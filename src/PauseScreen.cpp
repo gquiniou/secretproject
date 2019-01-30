@@ -16,7 +16,7 @@ PauseScreen::PauseScreen(ScreenManager *sm) : Screen(sm) {
     mytext.setStyle(sf::Text::Bold);
     sf::FloatRect bounds = mytext.getGlobalBounds();
     mytext.setOrigin(bounds.width / 2, bounds.height / 2);
-    mytext.setPosition(640 / 2.0, 480 / 2.0);
+    mytext.setPosition(640 / 2.0, 480 / 2.0); //TODO: remove hardcoded screen size
 };
 
 void PauseScreen::handleEvent(sf::Event &event) {
@@ -33,6 +33,6 @@ void PauseScreen::update(sf::Time dt) {
     mytext.setPosition(320 + 200 * sin(i * M_PI / 180 * 0.4), 240 + 150 * cos(i * M_PI / 180 * 0.5));
 }
 
-void PauseScreen::render(sf::RenderWindow &window) {
-    window.draw(mytext);
+void PauseScreen::render(sf::RenderWindow *window) {
+    window->draw(mytext);
 }
