@@ -5,6 +5,20 @@
 #include <PauseScreen.hpp>
 #include <cmath>
 
+
+PauseScreen::PauseScreen(ScreenManager *sm) : Screen(sm) {
+    f.loadFromFile("assets/Consequences.ttf");
+
+    mytext.setString("Paused");
+    mytext.setFont(f);
+    mytext.setFillColor(sf::Color::Red);
+    mytext.setCharacterSize(65);
+    mytext.setStyle(sf::Text::Bold);
+    sf::FloatRect bounds = mytext.getGlobalBounds();
+    mytext.setOrigin(bounds.width / 2, bounds.height / 2);
+    mytext.setPosition(640 / 2.0, 480 / 2.0);
+};
+
 void PauseScreen::handleEvent(sf::Event &event) {
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)) {
         std::cout << "esc pressed while paused !!" << std::endl;

@@ -30,11 +30,8 @@ public:
 
     void registerScreen(const std::string &name, Screen &s);
 
-    ~ScreenManager() {
-        for (auto x : screens) {
-            delete x.second;
-        }
-    };
+    ~ScreenManager();
+
 private:
     sf::RenderWindow *mWindow;
     std::map<std::string, Screen *> screens;

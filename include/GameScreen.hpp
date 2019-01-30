@@ -12,9 +12,7 @@
 
 class GameScreen : public Screen {
 public:
-    explicit GameScreen(ScreenManager *sm) : Screen(sm), myRectangle(sf::Vector2f(200, 200)) {
-        myRectangle.setFillColor(sf::Color::White);
-    };
+    explicit GameScreen(ScreenManager *);
 
     void handleEvent(sf::Event &event) override;
 

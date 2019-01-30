@@ -4,6 +4,10 @@
 
 #include "GameScreen.hpp"
 
+GameScreen::GameScreen(ScreenManager *sm) : Screen(sm), myRectangle(sf::Vector2f(200, 200)) {
+    myRectangle.setFillColor(sf::Color::White);
+};
+
 void GameScreen::handleEvent(sf::Event &event) {
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)) {
         std::cout << "esc pressed  !!" << std::endl;

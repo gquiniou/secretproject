@@ -23,3 +23,9 @@ void ScreenManager::changeScreen(const std::string &name) {
 void ScreenManager::registerScreen(const std::string &name, Screen &s) {
     screens[name] = &s;
 };
+
+ScreenManager::~ScreenManager() {
+    for (auto x : screens) {
+        delete x.second;
+    }
+};
