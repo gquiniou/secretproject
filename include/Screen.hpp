@@ -23,7 +23,7 @@ public:
 
     virtual void update(sf::Time dt) = 0;
 
-    virtual void render(sf::RenderWindow *) = 0;
+    virtual void render(sf::RenderWindow &) = 0;
 
 protected:
     ScreenManager *mScreenManager;

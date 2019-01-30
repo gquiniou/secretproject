@@ -20,7 +20,7 @@ public:
 
     void update(sf::Time dt) override;
 
-    void render(sf::RenderWindow *window) override;
+    void render(sf::RenderWindow &window) override;
 
 private:
     int i = 0;

@@ -16,7 +16,7 @@ void GameScreen::update(sf::Time dt) {
     myRectangle.setPosition(i++ % 500, i++ % 500);
 }
 
-void GameScreen::render(sf::RenderWindow *window) {
+void GameScreen::render(sf::RenderWindow &window) {
     //  Screen::render(window);
-    window->draw(myRectangle);
+    window.draw(myRectangle);
 }

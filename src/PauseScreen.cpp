@@ -13,12 +13,12 @@ void PauseScreen::handleEvent(sf::Event &event) {
 }
 
 void PauseScreen::update(sf::Time dt) {
-    i += 2;
+    i += 3;
     mytext.setRotation(i);
     mytext.setScale(1.2 + 0.9 * sin(i * M_PI / 180), 1.2 + 0.9 * sin(i * M_PI / 180));
     mytext.setPosition(320 + 200 * sin(i * M_PI / 180 * 0.4), 240 + 150 * cos(i * M_PI / 180 * 0.5));
 }
 
-void PauseScreen::render(sf::RenderWindow *window) {
-    window->draw(mytext);
+void PauseScreen::render(sf::RenderWindow &window) {
+    window.draw(mytext);
 }

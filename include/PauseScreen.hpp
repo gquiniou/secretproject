@@ -31,7 +31,7 @@ public:
 
     void update(sf::Time dt) override;
 
-    void render(sf::RenderWindow *window) override;
+    void render(sf::RenderWindow &window) override;
 
 private:
     sf::Text mytext;
