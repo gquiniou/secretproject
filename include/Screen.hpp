@@ -25,6 +25,8 @@ public:
 
     virtual void render(sf::RenderWindow *) = 0;
 
+    virtual ~Screen() {};
+
 protected:
     ScreenManager *mScreenManager;
 };
