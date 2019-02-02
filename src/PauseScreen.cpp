@@ -17,6 +17,8 @@ PauseScreen::PauseScreen(ScreenManager *sm) : Screen(sm) {
     sf::FloatRect bounds = mytext.getGlobalBounds();
     mytext.setOrigin(bounds.width / 2, bounds.height / 2);
     mytext.setPosition(640 / 2.0, 480 / 2.0); //TODO: remove hardcoded screen size
+    mytext.setOutlineThickness(4);
+    mytext.setOutlineColor(sf::Color::Magenta);
 };
 
 void PauseScreen::handleEvent(sf::Event &event) {
