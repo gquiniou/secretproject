@@ -1,7 +1,7 @@
 /*
  * MenuScreen.hpp
  *
- *  Created on: 2 févr. 2019
+ *  Created on: 2 fï¿½vr. 2019
  *      Author: Greg
  */
 
@@ -10,11 +10,27 @@
 
 #include <ScreenManager.hpp>
 #include <Screen.hpp>
+#include <SFML/Graphics/Text.hpp>
+
 
 class MenuScreen: public Screen {
+
+enum menuoptions {none, play, quit};
+
 public:
-	MenuScreen(ScreenManager *);
-	virtual ~MenuScreen();
+	explicit MenuScreen(ScreenManager *);
+
+    void handleEvent(sf::Event &event) override;
+
+    void update(sf::Time dt) override;
+
+    void render(sf::RenderWindow *window) override;
+
+private: 
+	sf::Text playoption;
+	sf::Text quitoption;
+	sf::Font f;
+	menuoptions selected = none;
 };
 
 #endif /* MENUSCREEN_HPP_ */

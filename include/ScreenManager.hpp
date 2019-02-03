@@ -30,6 +30,8 @@ public:
 
     void registerScreen(const std::string &name, Screen &s);
 
+    void quit();
+
     ~ScreenManager();
 
 private:
