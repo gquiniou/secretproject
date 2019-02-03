@@ -5,6 +5,7 @@
  *      Author: greg
  */
 #include <Application.hpp>
+#include <MenuScreen.hpp>
 #include <GameScreen.hpp>
 #include <PauseScreen.hpp>
 
@@ -15,8 +16,9 @@ Application::Application()
     mWindow.setMouseCursorVisible(false);
     mWindow.setVerticalSyncEnabled(true);
 
+    mScreenManager.registerScreen("menu", *new MenuScreen(&mScreenManager));
     mScreenManager.registerScreen("game", *new GameScreen(&mScreenManager));
-    mScreenManager.changeScreen("game");
+    mScreenManager.changeScreen("menu");
     mScreenManager.registerScreen("pause", *new PauseScreen(&mScreenManager));
 }
 
