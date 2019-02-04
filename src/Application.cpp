@@ -16,10 +16,11 @@ Application::Application()
     mWindow.setMouseCursorVisible(false);
     mWindow.setVerticalSyncEnabled(true);
 
+    //TODO: use unique_ptr
     mScreenManager.registerScreen("menu", *new MenuScreen(&mScreenManager));
     mScreenManager.registerScreen("game", *new GameScreen(&mScreenManager));
-    mScreenManager.changeScreen("menu");
     mScreenManager.registerScreen("pause", *new PauseScreen(&mScreenManager));
+    mScreenManager.changeScreen("menu");
 }
 
 void Application::run() {
@@ -37,6 +38,10 @@ void Application::run() {
             processInput();
             update(TimePerFrame);
             // mWindow.close();
+        }
+
+        if (mScreenManager.getDone()) {
+            break;
         }
 
         render();
