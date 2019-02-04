@@ -21,7 +21,8 @@ public:
     void render(sf::RenderWindow *window) override;
 
 private:
-    sf::Text mytext;
+    sf::Text pausedText;
+    sf::Text messageText;
     sf::Font f;
     int i = 0;
 

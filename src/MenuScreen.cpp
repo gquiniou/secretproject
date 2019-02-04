@@ -8,7 +8,6 @@
 #include "MenuScreen.hpp"
 
 void horizPosition(sf::Text &target, float vertpos) {
-	//
 	sf::FloatRect bounds = target.getGlobalBounds();
 	target.setOrigin(bounds.width / 2, bounds.height / 2);
     target.setPosition(640 / 2.0, vertpos); //TODO: remove hardcoded screen size
@@ -72,7 +71,7 @@ void MenuScreen::handleEvent(sf::Event &event) {
 				if (selected == play) {
 					mScreenManager->changeScreen("game");
 				} else if (selected == quit) {
-					mScreenManager->quit();
+					mScreenManager->setDone(true);
 				}
 				break;				
 

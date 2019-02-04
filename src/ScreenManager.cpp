@@ -24,7 +24,12 @@ void ScreenManager::registerScreen(const std::string &name, Screen &s) {
     screens[name] = &s;
 };
 
-void ScreenManager::quit() {
+void ScreenManager::setDone(bool done) {
+    mDone = done;
+}
+
+bool ScreenManager::getDone() {
+    return mDone;
 }
 
 ScreenManager::~ScreenManager() {

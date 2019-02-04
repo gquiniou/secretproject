@@ -30,7 +30,9 @@ public:
 
     void registerScreen(const std::string &name, Screen &s);
 
-    void quit();
+    void setDone(bool);
+
+    bool getDone();
 
     ~ScreenManager();
 
@@ -39,6 +41,7 @@ private:
     //TODO: use smart pointers for Screens
     std::map<std::string, Screen *> screens;
     Screen *activeScreen = nullptr;
+    bool mDone = false;
 };
 
 #endif /* SCREENMANAGER_H_ */
