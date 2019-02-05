@@ -17,11 +17,11 @@ void ScreenManager::render() {
 };
 
 void ScreenManager::changeScreen(const std::string &name) {
-    activeScreen = screens[name];
+    activeScreen = &*screens[name];
 }
 
-void ScreenManager::registerScreen(const std::string &name, Screen &s) {
-    screens[name] = &s;
+void ScreenManager::registerScreen(const std::string &name, std::unique_ptr<Screen> s) {
+    screens[name] = std::move(s);
 };
 
 void ScreenManager::setDone(bool done) {
@@ -33,7 +33,7 @@ bool ScreenManager::getDone() {
 }
 
 ScreenManager::~ScreenManager() {
-    for (auto x : screens) {
-        delete x.second;
-    }
+   // for (auto x : screens) {
+   //     delete x.second;
+   // }
 };

@@ -12,6 +12,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
+#include <memory>
 #include <map>
 #include <iostream>
 
@@ -28,7 +29,7 @@ public:
 
     void changeScreen(const std::string &name);
 
-    void registerScreen(const std::string &name, Screen &s);
+    void registerScreen(const std::string &,  std::unique_ptr<Screen>);
 
     void setDone(bool);
 
@@ -38,8 +39,7 @@ public:
 
 private:
     sf::RenderWindow *mWindow;
-    //TODO: use smart pointers for Screens
-    std::map<std::string, Screen *> screens;
+    std::map<std::string, std::unique_ptr<Screen>> screens;
     Screen *activeScreen = nullptr;
     bool mDone = false;
 };
