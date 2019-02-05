@@ -16,10 +16,9 @@ Application::Application()
     mWindow.setMouseCursorVisible(false);
     mWindow.setVerticalSyncEnabled(true);
 
-    //TODO: use unique_ptr
-    mScreenManager.registerScreen("menu", *new MenuScreen(&mScreenManager));
-    mScreenManager.registerScreen("game", *new GameScreen(&mScreenManager));
-    mScreenManager.registerScreen("pause", *new PauseScreen(&mScreenManager));
+    mScreenManager.registerScreen("menu", std::make_unique<MenuScreen>(&mScreenManager));
+    mScreenManager.registerScreen("game", std::make_unique<GameScreen>(&mScreenManager));
+    mScreenManager.registerScreen("pause", std::make_unique<PauseScreen>(&mScreenManager));
     mScreenManager.changeScreen("menu");
 }
 
