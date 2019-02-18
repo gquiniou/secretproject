@@ -7,13 +7,13 @@
 
 #include "MenuScreen.hpp"
 
-void horizPosition(sf::Text &target, float vertpos) {
+void horizPosition(sf::Text &target, const float vertpos) {
 	sf::FloatRect bounds = target.getGlobalBounds();
 	target.setOrigin(bounds.width / 2, bounds.height / 2);
     target.setPosition(640 / 2.0, vertpos); //TODO: remove hardcoded screen size
 }
 
-void highlightOption(sf::Text &target, bool highlight) {
+void highlightOption(sf::Text &target, const bool highlight) {
 	if (highlight) {
 		target.setOutlineColor(sf::Color::Red);
 		target.setOutlineThickness(5);
@@ -58,7 +58,7 @@ void MenuScreen::handleEvent(sf::Event &event) {
 			case sf::Keyboard::Up:
         		std::cout << "up pressed" << std::endl;		
 				if (selected == none) {
-					selected = play;
+					selected = quit;
 				} else if (selected == play) {
 					selected = quit;	
 				} else if (selected == quit) {

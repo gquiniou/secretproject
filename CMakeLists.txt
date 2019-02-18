@@ -3,8 +3,9 @@ project(SecretProject)
 cmake_minimum_required(VERSION 3.10)
 
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(SFML_DIR "c:/devtools/mingw-w64/Libs/SFML-2.5.1/lib/cmake/SFML")
+set(SFML_DIR "d:/devtools/mingw-w64/Libs/SFML-2.5.1/lib/cmake/SFML")
 #set(CMAKE_MODULE_PATH "/usr/share/SFML/cmake/Modules/")
 
 find_package(SFML 2.4 COMPONENTS graphics audio REQUIRED)

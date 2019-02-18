@@ -4,8 +4,8 @@
 
 #include "GameScreen.hpp"
 
-GameScreen::GameScreen(ScreenManager *sm) : Screen(sm), myRectangle(sf::Vector2f(200, 200)) {
-    myRectangle.setFillColor(sf::Color::White);
+GameScreen::GameScreen(ScreenManager *sm) : Screen(sm) {
+    //myRectangle.setFillColor(sf::Color::White);
 };
 
 void GameScreen::handleEvent(sf::Event &event) {
@@ -17,10 +17,10 @@ void GameScreen::handleEvent(sf::Event &event) {
 
 void GameScreen::update(sf::Time dt) {
     //  Screen::update(dt);
-    myRectangle.setPosition(i++ % 500, i++ % 500);
+    //myRectangle.setPosition(i++ % 500, i++ % 500);
 }
 
 void GameScreen::render(sf::RenderWindow *window) {
     //  Screen::render(window);
-    window->draw(myRectangle);
+    //window->draw(myRectangle);
 }

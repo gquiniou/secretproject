@@ -5,23 +5,23 @@
 
 
 void ScreenManager::handleEvent(sf::Event &event) {
-    activeScreen->handleEvent(event);
+    mActiveScreen->handleEvent(event);
 };
 
 void ScreenManager::update(sf::Time dt) {
-    activeScreen->update(dt);
+    mActiveScreen->update(dt);
 };
 
 void ScreenManager::render() {
-    activeScreen->render(mWindow);
+    mActiveScreen->render(mWindow);
 };
 
 void ScreenManager::changeScreen(const std::string &name) {
-    activeScreen = &*screens[name];
+    mActiveScreen = &*mScreens[name];
 }
 
 void ScreenManager::registerScreen(const std::string &name, std::unique_ptr<Screen> s) {
-    screens[name] = std::move(s);
+    mScreens[name] = std::move(s);
 };
 
 void ScreenManager::setDone(bool done) {

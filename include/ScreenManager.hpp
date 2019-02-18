@@ -39,8 +39,8 @@ public:
 
 private:
     sf::RenderWindow *mWindow;
-    std::map<std::string, std::unique_ptr<Screen>> screens;
-    Screen *activeScreen = nullptr;
+    std::map<std::string, std::unique_ptr<Screen>> mScreens;
+    Screen *mActiveScreen = nullptr;
     bool mDone = false;
 };
 

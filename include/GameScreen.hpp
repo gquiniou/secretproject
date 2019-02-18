@@ -6,7 +6,8 @@
 #define SECRETPROJECT_GAMESCREEN_HPP
 
 #include <ScreenManager.hpp>
-#include "Screen.hpp"
+#include <Screen.hpp>
+#include <GameWorld.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
 
 
@@ -21,8 +22,7 @@ public:
     void render(sf::RenderWindow *window) override;
 
 private:
-    int i = 0;
-    sf::RectangleShape myRectangle;
+    GameWorld mGW;
 };
 
 
