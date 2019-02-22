@@ -15,16 +15,15 @@ void GameWorld::initLevel() {
     rects[2] = sf::IntRect(80, 0, 31, 31);
     rects[3] = sf::IntRect(160, 0, 31, 31);
 
-
     //TODO: clear all entities
 
     //creating a few brick entities
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < 150; i++) {
         auto myentity = registry.create();
-        auto &vel = registry.assign<velocity>(myentity, rand() % 10 - 5, rand() % 10 -5);
+        registry.assign<velocity>(myentity, rand() % 10 - 5, rand() % 10 -5);
         sf::Sprite s(*sprites, rects[i % 4]);
-        std::cout << "i " << i << " i%sizeof(rects) " << i % sizeof(rects) << std::endl;
-        auto &common = registry.assign<commoninfo>(myentity, sf::Vector2f(400,300), s);
+        //std::cout << "i " << i << " i%sizeof(rects) " << i % sizeof(rects) << std::endl;
+        registry.assign<commoninfo>(myentity, sf::Vector2f(400,300), s);
     }
     std::cout << "init" << std::endl;
 }

@@ -7,7 +7,7 @@
 GameScreen::GameScreen(ScreenManager *sm) : Screen(sm) {
     //myRectangle.setFillColor(sf::Color::White);
     mWorld.initLevel();
-};
+}
 
 void GameScreen::handleEvent(sf::Event &event) {
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)) {

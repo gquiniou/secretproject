@@ -26,7 +26,7 @@ PauseScreen::PauseScreen(ScreenManager *sm) : Screen(sm) {
     messageText.setOrigin(bounds.width / 2, bounds.height / 2);
     messageText.setPosition(640 / 2.0, 400); //TODO: remove hardcoded screen size
 
-};
+}
 
 void PauseScreen::handleEvent(sf::Event &event) {
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)) {
