@@ -6,6 +6,7 @@
 
 GameScreen::GameScreen(ScreenManager *sm) : Screen(sm) {
     //myRectangle.setFillColor(sf::Color::White);
+    mWorld.initLevel();
 };
 
 void GameScreen::handleEvent(sf::Event &event) {
@@ -18,9 +19,11 @@ void GameScreen::handleEvent(sf::Event &event) {
 void GameScreen::update(sf::Time dt) {
     //  Screen::update(dt);
     //myRectangle.setPosition(i++ % 500, i++ % 500);
+    mWorld.update(dt);
 }
 
 void GameScreen::render(sf::RenderWindow *window) {
     //  Screen::render(window);
     //window->draw(myRectangle);
+    mWorld.render(window);
 }

@@ -10,7 +10,7 @@
 #include <PauseScreen.hpp>
 
 Application::Application()
-        : mWindow(sf::VideoMode(640, 480), "Game", sf::Style::Close),
+        : mWindow(sf::VideoMode(800, 600), "Game", sf::Style::Close),
           mScreenManager(&mWindow) {
 
     mWindow.setMouseCursorVisible(false);

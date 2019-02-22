@@ -5,3 +5,5 @@ secret
 .idea
 /build/
 /cmake-build-debug/
+/CMakeFiles/
+CMakeCache.txt
