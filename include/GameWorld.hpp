@@ -5,21 +5,34 @@
 #ifndef SECRETPROJECT_GAMEWORLD_HPP
 #define SECRETPROJECT_GAMEWORLD_HPP
 
+#include "cute_c2.h"
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <entt/entt.hpp>
 #include <iostream>
+#include <utility> #include <utility>
+
+struct rectCollidable {
+
+};
+struct circleCollidable {
+    c2Circle circle;
+    //  circle.p = c2V(200, 200);
+    //  circle.r = 20;
+
+};
 
 
 struct velocity {
-    velocity(sf::Vector2f v) : vel(v) {};
+    explicit velocity(sf::Vector2f v) : vel(v) {};
     velocity(int x, int y) : vel(sf::Vector2f(x, y)) {};
     sf::Vector2f vel;
 };
+
 struct commoninfo {
-    commoninfo(sf::Vector2f p, sf::Sprite s) : pos(p), sprite(s) {
+    commoninfo(sf::Vector2f p, sf::Sprite s) : pos(p), sprite(std::move(std::move(s))) {
         sprite.setOrigin(sprite.getLocalBounds().width /2, sprite.getLocalBounds().height /2);
     };
     void updatePos(velocity &v) {

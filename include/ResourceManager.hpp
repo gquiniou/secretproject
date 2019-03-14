@@ -18,8 +18,8 @@ typedef std::map<std::string, std::unique_ptr<sf::Texture>> TextureMap;
   
 class ResourceManager {
 public:
-  
-  static sf::Texture *getTexture(const std::string filename) { 
+
+    static sf::Texture *getTexture(const std::string &filename) {
     static TextureMap textures;
 
     std::cout << "getTexture called " << filename << std::endl;

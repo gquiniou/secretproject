@@ -48,7 +48,7 @@ void Application::run() {
 }
 
 void Application::processInput() {
-    sf::Event event;
+    sf::Event event{};
     while (mWindow.pollEvent(event)) {
         mScreenManager.handleEvent(event);
 
