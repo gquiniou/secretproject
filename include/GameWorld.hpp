@@ -12,37 +12,58 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <entt/entt.hpp>
 #include <iostream>
-#include <utility> #include <utility>
-
-struct rectCollidable {
-
-};
-struct circleCollidable {
-    c2Circle circle;
-    //  circle.p = c2V(200, 200);
-    //  circle.r = 20;
-
-};
-
 
 struct velocity {
     explicit velocity(sf::Vector2f v) : vel(v) {};
+
     velocity(int x, int y) : vel(sf::Vector2f(x, y)) {};
     sf::Vector2f vel;
 };
 
+
+struct rectCollidable {
+    rectCollidable(float x, float y, float w, float h) {
+        aabb.min = c2V(x, y);
+        aabb.max = c2V(x + w, y + h);
+    };
+
+    void updatePos(velocity &v) {
+        aabb.min.x += v.vel.x;
+        aabb.max.x += v.vel.x;
+        aabb.min.y += v.vel.y;
+        aabb.max.y += v.vel.y;
+
+    }
+
+    c2AABB aabb;
+};
+struct circleCollidable {
+    circleCollidable(float x, float y, float r) {
+        circle.p = c2V(x, y);
+        circle.r = r;
+    }
+
+    void updatePos(velocity &v) {
+        circle.p.x += v.vel.x;
+        circle.p.y += v.vel.y;
+    }
+    c2Circle circle;
+};
+
+
+
 struct commoninfo {
-    commoninfo(sf::Vector2f p, sf::Sprite s) : pos(p), sprite(std::move(std::move(s))) {
+    commoninfo(sf::Sprite s) : sprite(std::move(std::move(s))) {
         sprite.setOrigin(sprite.getLocalBounds().width /2, sprite.getLocalBounds().height /2);
     };
-    void updatePos(velocity &v) {
-        pos = pos + v.vel;
-        if (pos.x < 0 || pos.x > 800) v.vel.x = -v.vel.x;             
-        if (pos.y < 0 || pos.y > 600) v.vel.y = -v.vel.y; 
-
-        sprite.setPosition(pos);
-    }
-    sf::Vector2f pos;
+//    void updatePos(velocity &v) {
+//        pos = pos + v.vel;
+//        if (pos.x < 0 || pos.x > 800) v.vel.x = -v.vel.x;
+//        if (pos.y < 0 || pos.y > 600) v.vel.y = -v.vel.y;
+//
+//        sprite.setPosition(pos);
+//    }
+//    sf::Vector2f pos;
     sf::Sprite sprite;
 };
 

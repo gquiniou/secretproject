@@ -13,6 +13,6 @@ add_executable(SecretProject src/main.cpp src/Application.cpp src/GameScreen.cpp
 
 target_include_directories(SecretProject PRIVATE include)
 target_include_directories(SecretProject PRIVATE entt/src)
-target_compile_options(SecretProject PRIVATE -Wall -Wextra -pedantic -Werror -Wno-unused-parameter)
+#target_compile_options(SecretProject PRIVATE -Wall -Wextra -pedantic -Werror -Wno-unused-parameter)
 
 target_link_libraries(SecretProject sfml-graphics)

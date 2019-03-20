@@ -23,7 +23,8 @@ void GameWorld::initLevel() {
         registry.assign<velocity>(myentity, rand() % 10 - 5, rand() % 10 -5);
         sf::Sprite s(*sprites, rects[i % 4]);
         //std::cout << "i " << i << " i%sizeof(rects) " << i % sizeof(rects) << std::endl;
-        registry.assign<commoninfo>(myentity, sf::Vector2f(400,300), s);
+        registry.assign<commoninfo>(myentity, s);
+        registry.assign<rectCollidable>(myentity, 400, 300, 31, 31);
     }
     std::cout << "init" << std::endl;
 }
@@ -33,11 +34,11 @@ void GameWorld::handleEvent(sf::Event &event) {
 }
 
 void GameWorld::update(sf::Time dt) {
-    auto view = registry.view<commoninfo, velocity>();
+    auto view = registry.view<commoninfo, velocity, rectCollidable>();
     for(auto entity: view) {
         auto &vel = view.get<velocity>(entity);
-        auto &info = view.get<commoninfo>(entity);
-        info.updatePos(vel);
+        auto &colinfo = view.get<rectCollidable>(entity);
+        colinfo.updatePos(vel);
         // ...
     }
 
