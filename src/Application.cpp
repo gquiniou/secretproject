@@ -11,14 +11,14 @@
 
 Application::Application()
         : mWindow(sf::VideoMode(800, 600), "Game", sf::Style::Close),
-          mScreenManager(&mWindow) {
+          mScreenManager(mWindow) {
 
     mWindow.setMouseCursorVisible(false);
     mWindow.setVerticalSyncEnabled(true);
 
-    mScreenManager.registerScreen("menu", std::make_unique<MenuScreen>(&mScreenManager));
-    mScreenManager.registerScreen("game", std::make_unique<GameScreen>(&mScreenManager));
-    mScreenManager.registerScreen("pause", std::make_unique<PauseScreen>(&mScreenManager));
+    mScreenManager.registerScreen("menu", std::make_unique<MenuScreen>(mScreenManager));
+    mScreenManager.registerScreen("game", std::make_unique<GameScreen>(mScreenManager));
+    mScreenManager.registerScreen("pause", std::make_unique<PauseScreen>(mScreenManager));
     mScreenManager.changeScreen("menu");
 }
 

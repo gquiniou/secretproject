@@ -18,13 +18,13 @@ class MenuScreen: public Screen {
 enum menuoptions {none, play, quit};
 
 public:
-	explicit MenuScreen(ScreenManager *);
+    explicit MenuScreen(ScreenManager &);
 
     void handleEvent(sf::Event &event) override;
 
     void update(sf::Time dt) override;
 
-    void render(sf::RenderWindow *window) override;
+    void render(sf::RenderWindow &window) override;
 
 private: 
 	sf::Text playoption;

@@ -13,13 +13,13 @@
 
 class GameScreen : public Screen {
 public:
-    explicit GameScreen(ScreenManager *);
+    explicit GameScreen(ScreenManager &);
 
     void handleEvent(sf::Event &event) override;
 
     void update(sf::Time dt) override;
 
-    void render(sf::RenderWindow *window) override;
+    void render(sf::RenderWindow &window) override;
 
 private:
     GameWorld mWorld;

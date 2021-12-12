@@ -19,13 +19,13 @@
 class ScreenManager : public sf::NonCopyable {
 
 public:
-    explicit ScreenManager(sf::RenderWindow *window) : mWindow(window) {};
+    explicit ScreenManager(sf::RenderWindow &window) : mWindow(window) {};
 
     void handleEvent(sf::Event &event);
 
-    void update(sf::Time dt);
+    void update(sf::Time dt) const;
 
-    void render();
+    void render() const;
 
     void changeScreen(const std::string &name);
 
@@ -38,7 +38,7 @@ public:
     ~ScreenManager();
 
 private:
-    sf::RenderWindow *mWindow;
+    sf::RenderWindow &mWindow;
     std::map<std::string, std::unique_ptr<Screen>> mScreens;
     Screen *mActiveScreen = nullptr;
     bool mDone = false;

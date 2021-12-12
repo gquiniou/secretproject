@@ -56,14 +56,14 @@ struct commoninfo {
     commoninfo(sf::Sprite s) : sprite(std::move(std::move(s))) {
         sprite.setOrigin(sprite.getLocalBounds().width /2, sprite.getLocalBounds().height /2);
     };
-//    void updatePos(velocity &v) {
-//        pos = pos + v.vel;
-//        if (pos.x < 0 || pos.x > 800) v.vel.x = -v.vel.x;
-//        if (pos.y < 0 || pos.y > 600) v.vel.y = -v.vel.y;
-//
-//        sprite.setPosition(pos);
-//    }
-//    sf::Vector2f pos;
+    void updatePos(velocity &v) {
+        pos = pos + v.vel;
+        if (pos.x < 0 || pos.x > 800) v.vel.x = -v.vel.x;
+        if (pos.y < 0 || pos.y > 600) v.vel.y = -v.vel.y;
+
+        sprite.setPosition(pos);
+    }
+    sf::Vector2f pos;
     sf::Sprite sprite;
 };
 
@@ -78,7 +78,7 @@ public:
     void initLevel();
     void handleEvent(sf::Event &event);
     void update(sf::Time dt);
-    void render(sf::RenderWindow *window);
+    void render(sf::RenderWindow &window);
 
 private:
     gameState mGS;

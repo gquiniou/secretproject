@@ -6,7 +6,7 @@
 #include <cmath>
 
 
-PauseScreen::PauseScreen(ScreenManager *sm) : Screen(sm) {
+PauseScreen::PauseScreen(ScreenManager &sm) : Screen(sm) {
     f.loadFromFile("assets/Consequences.ttf");
 
     pausedText.setString("Paused");
@@ -31,11 +31,11 @@ PauseScreen::PauseScreen(ScreenManager *sm) : Screen(sm) {
 void PauseScreen::handleEvent(sf::Event &event) {
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)) {
         std::cout << "esc pressed while paused !!" << std::endl;
-        mScreenManager->changeScreen("game");
+        mScreenManager.changeScreen("game");
     }
     if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Q)) {
         std::cout << "Q pressed while paused !!" << std::endl;
-        mScreenManager->changeScreen("menu");
+        mScreenManager.changeScreen("menu");
     }    
 }
 
@@ -46,7 +46,8 @@ void PauseScreen::update(sf::Time dt) {
     pausedText.setPosition(320 + 200 * sin(i * M_PI / 180 * 0.4), 240 + 150 * cos(i * M_PI / 180 * 0.5));
 }
 
-void PauseScreen::render(sf::RenderWindow *window) {
-    window->draw(pausedText);
-    window->draw(messageText);
+void PauseScreen::render(sf::RenderWindow &window) {
+    window.draw(pausedText);
+    window.draw(messageText);
+    window.draw(messageText);
 }

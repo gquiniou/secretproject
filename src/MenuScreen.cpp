@@ -22,8 +22,8 @@ void highlightOption(sf::Text &target, const bool highlight) {
 	}
 }
 
-MenuScreen::MenuScreen(ScreenManager *sm) : Screen(sm) {
-    f.loadFromFile("assets/Consequences.ttf");
+MenuScreen::MenuScreen(ScreenManager &sm) : Screen(sm) {
+        f.loadFromFile("assets/Consequences.ttf");
 
 	playoption.setString("Play");
 	playoption.setFont(f);
@@ -41,7 +41,7 @@ MenuScreen::MenuScreen(ScreenManager *sm) : Screen(sm) {
 
 
 void MenuScreen::handleEvent(sf::Event &event) {
-    if ((event.type == sf::Event::KeyPressed)) {
+    if (event.type == sf::Event::KeyPressed) {
 		switch (event.key.code)
 		{
 			case sf::Keyboard::Down:
@@ -69,9 +69,9 @@ void MenuScreen::handleEvent(sf::Event &event) {
 			case sf::Keyboard::Enter:
         		std::cout << "Enter pressed" << std::endl;				
 				if (selected == play) {
-					mScreenManager->changeScreen("game");
+					mScreenManager.changeScreen("game");
 				} else if (selected == quit) {
-					mScreenManager->setDone(true);
+					mScreenManager.setDone(true);
 				}
 				break;				
 
@@ -86,7 +86,7 @@ void MenuScreen::update(sf::Time dt) {
 	highlightOption(quitoption, selected == quit);
 }
 
-void MenuScreen::render(sf::RenderWindow *window) {
-	window->draw(playoption);
-	window->draw(quitoption);
+void MenuScreen::render(sf::RenderWindow &window) {
+	window.draw(playoption);
+	window.draw(quitoption);
 }

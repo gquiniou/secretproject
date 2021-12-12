@@ -8,11 +8,11 @@ void ScreenManager::handleEvent(sf::Event &event) {
     mActiveScreen->handleEvent(event);
 }
 
-void ScreenManager::update(sf::Time dt) {
+void ScreenManager::update(sf::Time dt)  const {
     mActiveScreen->update(dt);
 }
 
-void ScreenManager::render() {
+void ScreenManager::render() const {
     mActiveScreen->render(mWindow);
 }
 
