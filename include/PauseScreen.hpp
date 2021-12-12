@@ -5,28 +5,26 @@
 #ifndef SECRETPROJECT_PAUSESCREEN_HPP
 #define SECRETPROJECT_PAUSESCREEN_HPP
 
-#include <ScreenManager.hpp>
 #include "Screen.hpp"
 #include <SFML/Graphics/Text.hpp>
+#include <ScreenManager.hpp>
 
 class PauseScreen : public Screen {
 
 public:
-    explicit PauseScreen(ScreenManager &);
+  explicit PauseScreen(ScreenManager &);
 
-    void handleEvent(sf::Event &event) override;
+  void handleEvent(sf::Event &event) override;
 
-    void update(sf::Time dt) override;
+  void update(sf::Time dt) override;
 
-    void render(sf::RenderWindow &window) override;
+  void render(sf::RenderWindow &window) override;
 
 private:
-    sf::Text pausedText;
-    sf::Text messageText;
-    sf::Font f;
-    int i = 0;
-
+  sf::Text pausedText;
+  sf::Text messageText;
+  sf::Font f;
+  int i = 0;
 };
 
-
-#endif //SECRETPROJECT_PAUSESCREEN_HPP
+#endif // SECRETPROJECT_PAUSESCREEN_HPP

@@ -14,19 +14,19 @@
 
 class Application {
 public:
-    Application();
+  Application();
 
-    void run();
+  void run();
 
 private:
-    void processInput();
+  void processInput();
 
-    void update(sf::Time dt);
+  void update(sf::Time dt);
 
-    void render();
+  void render();
 
-    sf::RenderWindow mWindow;
-    ScreenManager mScreenManager;
+  sf::RenderWindow mWindow;
+  ScreenManager mScreenManager;
 };
 
 #endif /* APPLICATION_H_ */

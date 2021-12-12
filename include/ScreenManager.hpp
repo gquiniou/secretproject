@@ -8,40 +8,42 @@
 #ifndef SCREENMANAGER_H_
 #define SCREENMANAGER_H_
 
-#include <Screen.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Time.hpp>
 #include <SFML/Window/Event.hpp>
-#include <memory>
-#include <map>
 #include <iostream>
+#include <map>
+#include <memory>
+#include <Screen.hpp>
+
+class Screen;
 
 class ScreenManager : public sf::NonCopyable {
 
 public:
-    explicit ScreenManager(sf::RenderWindow &window) : mWindow(window) {};
+  explicit ScreenManager(sf::RenderWindow &window) : mWindow(window){};
 
-    void handleEvent(sf::Event &event);
+  void handleEvent(sf::Event &event);
 
-    void update(sf::Time dt) const;
+  void update(sf::Time dt) const;
 
-    void render() const;
+  void render() const;
 
-    void changeScreen(const std::string &name);
+  void changeScreen(const std::string &name);
 
-    void registerScreen(const std::string &,  std::unique_ptr<Screen>);
+  void registerScreen(const std::string &, std::unique_ptr<Screen>);
 
-    void setDone(bool);
+  void setDone(bool);
 
-    bool getDone();
+  bool getDone();
 
-    ~ScreenManager();
+  ~ScreenManager();
 
 private:
-    sf::RenderWindow &mWindow;
-    std::map<std::string, std::unique_ptr<Screen>> mScreens;
-    Screen *mActiveScreen = nullptr;
-    bool mDone = false;
+  sf::RenderWindow &mWindow;
+  std::map<std::string, std::unique_ptr<Screen>> mScreens;
+  Screen *mActiveScreen = nullptr;
+  bool mDone = false;
 };
 
 #endif /* SCREENMANAGER_H_ */
