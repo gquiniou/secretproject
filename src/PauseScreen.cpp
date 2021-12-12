@@ -41,12 +41,12 @@ void PauseScreen::handleEvent(sf::Event &event) {
 }
 
 void PauseScreen::update(sf::Time dt) {
-  i += 3;
-  pausedText.setRotation(i);
-  pausedText.setScale(1.2 + 0.9 * sin(i * M_PI / 180),
-                      1.2 + 0.9 * sin(i * M_PI / 180));
-  pausedText.setPosition(320 + 200 * sin(i * M_PI / 180 * 0.4),
-                         240 + 150 * cos(i * M_PI / 180 * 0.5));
+  angle += 3.0;
+  pausedText.setRotation(angle);
+  pausedText.setScale(1.2 + 0.9 * sin(angle * M_PI / 180),
+                      1.2 + 0.9 * sin(angle * M_PI / 180));
+  pausedText.setPosition(320 + 200 * sin(angle * M_PI / 180 * 0.4),
+                         240 + 150 * cos(angle * M_PI / 180 * 0.5));
 }
 
 void PauseScreen::render(sf::RenderWindow &window) {

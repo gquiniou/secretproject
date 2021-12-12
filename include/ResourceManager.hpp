@@ -24,7 +24,7 @@ public:
 
     TextureMap::iterator it = textures.find(filename);
     if (it == textures.end()) {
-      std::unique_ptr<sf::Texture> temp(new sf::Texture);
+      std::unique_ptr<sf::Texture> temp = std::make_unique<sf::Texture>();
       if (temp->loadFromFile(filename)) {
         textures.emplace(filename, std::move(temp));
         return textures[filename].get();

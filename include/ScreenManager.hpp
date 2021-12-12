@@ -35,7 +35,7 @@ public:
 
   void setDone(bool);
 
-  bool getDone();
+  bool getDone() const;
 
   ~ScreenManager();
 

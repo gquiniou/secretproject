@@ -24,7 +24,7 @@ private:
   sf::Text pausedText;
   sf::Text messageText;
   sf::Font f;
-  int i = 0;
+  float angle = 0.0;
 };
 
 #endif // SECRETPROJECT_PAUSESCREEN_HPP

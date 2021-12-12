@@ -22,6 +22,6 @@ void ScreenManager::registerScreen(const std::string &name,
 
 void ScreenManager::setDone(bool done) { mDone = done; }
 
-bool ScreenManager::getDone() { return mDone; }
+bool ScreenManager::getDone() const { return mDone; }
 
 ScreenManager::~ScreenManager() {}
